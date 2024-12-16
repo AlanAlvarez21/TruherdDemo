@@ -4,9 +4,9 @@ class Animal < ApplicationRecord
 
   after_create_commit do
     broadcast_append_to "dashboard_events", 
-    target: "events_stream", 
-    partial: "dashboard/event", 
-    locals: { event_type: "animal_added", message: "Animal #{self.name} was added to #{self.herd.name} Herd." }
+      target: "events_stream", 
+      partial: "dashboard/event", 
+      locals: { event_type: "animal_added", message: "Animal #{self.name} was added to #{self.herd.name} Herd." }
   end
 
   after_update_commit do
