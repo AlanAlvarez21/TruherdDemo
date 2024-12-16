@@ -1,25 +1,2 @@
 # README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-# TruherdDemo
+<img width="1193" alt="Captura de pantalla 2024-12-16 a la(s) 12 16 50 p m" src="https://github.com/user-attachments/assets/8dd3d471-b51d-4523-a3f8-a55c51322859" />
