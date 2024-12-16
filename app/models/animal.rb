@@ -2,8 +2,19 @@
 class Animal < ApplicationRecord
   belongs_to :herd
 
-  after_create_commit -> { broadcast_event("animal_added", "Animal #{name} was added to #{herd.name} Herd.") }
-  after_update_commit -> { broadcast_event("animal_sold", "Animal #{name} was marked as sold.") if saved_change_to_status? && status == 'sold' }
+  after_create_commit do
+    broadcast_append_to "dashboard_events", 
+    target: "events_stream", 
+    partial: "dashboard/event", 
+    locals: { event_type: "animal_added", message: "Animal #{self.name} was added to #{self.herd.name} Herd." }
+  end
+
+  after_update_commit do
+    broadcast_replace_to "dashboard_events", 
+    target: "events_stream", 
+    partial: "dashboard/event", 
+    locals: { event_type: "animal_updated", message: "Animal #{self.name} was sold." }
+  end
 
   private
 
