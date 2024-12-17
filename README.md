@@ -1,4 +1,7 @@
+# Notion site with the report: https://autumn-sidecar-877.notion.site/Exercise-Event-Stream-for-Herd-Actions-15ef0183ba1580608e64fe6728e277e2
+
 ## Event Stream app for Herd Actions
+
 
 - Rails version 8.0.1 
 - Ruby version 3.3.4
