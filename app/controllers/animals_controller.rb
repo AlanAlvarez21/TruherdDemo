@@ -4,12 +4,22 @@ class AnimalsController < ApplicationController
 
     def create
       @animal = Animal.create!(name: params[:name], herd_id: params[:herd_id], status: "active")
-      redirect_to root_path, notice: "Animal was successfully added."
+    
+      respond_to do |format|
+        format.html { redirect_to root_path, notice: "Animal was successfully added. :D" }
+        format.turbo_stream
+      end
     end
+    
 
     def update
       @animal = Animal.find(params[:id])
-      @animal.update!(status: "sold")
-      redirect_to root_path, notice: "Animal was successfully marked as sold."
+      @animal.update!(status: params[:status])
+    
+      respond_to do |format|
+        format.html 
+        format.turbo_stream
+      end
     end
+    
 end

@@ -10,11 +10,11 @@ class Animal < ApplicationRecord
   end
 
   after_update_commit do
-    broadcast_replace_to "dashboard_events",
-    target: "events_stream",
-    partial: "dashboard/event",
-    locals: { event_type: "animal_updated", message: "Animal #{self.name} was sold." }
-  end
+    broadcast_append_to "dashboard_events",
+      target: "events_stream", 
+      partial: "dashboard/event",
+      locals: { event_type: "animal_updated", message: "Animal #{self.name} was marked as #{self.status}." }
+  end  
 
   private
 
@@ -23,7 +23,7 @@ class Animal < ApplicationRecord
       "dashboard_events",
       partial: "dashboard/event",
       target: "events_stream",
-      locals: { message:, event_type: }
+      locals: { message: message, event_type: event_type }
     )
   end
 end
