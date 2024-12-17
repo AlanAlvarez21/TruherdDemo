@@ -53,7 +53,7 @@ group :development, :test do
   gem "rubocop-rails-omakase", require: false
 end
 
-gem 'redis'
+gem "redis"
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
