@@ -1,5 +1,9 @@
 ## Event Stream app for Herd Actions
 
+- Rails version 8.0.1 
+- Ruby version 3.3.4
+
+
 # 1. Pre-requisites
 In order to run locally you must install **Docker** and **Devcontainers**
 - **Docker** https://www.docker.com/
